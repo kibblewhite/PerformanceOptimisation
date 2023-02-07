@@ -1,0 +1,10 @@
+﻿global using BenchmarkDotNet.Attributes;
+global using BenchmarkDotNet.Jobs;
+global using BenchmarkDotNet.Running;
+global using Samples.Dictionary;
+global using Samples.GcOnTheHeap;
+global using Samples.HeapVsStack;
+global using System.Runtime;
+global using System.Runtime.CompilerServices;
+global using System.Runtime.InteropServices;
+global using Samples.Casting;
