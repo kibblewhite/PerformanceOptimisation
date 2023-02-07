@@ -8,3 +8,4 @@ global using System.Runtime;
 global using System.Runtime.CompilerServices;
 global using System.Runtime.InteropServices;
 global using Samples.Casting;
+global using Samples.Sealed;

@@ -32,6 +32,9 @@ internal class Program
                 case Benchmarks.CastingBenchmarks:
                     BenchmarkRunner.Run<CastingBenchmarks>(custom_config);
                     break;
+                case Benchmarks.SealedBenchmarks:
+                    BenchmarkRunner.Run<SealedBenchmarks>(custom_config);
+                    break;
             }
         }
 

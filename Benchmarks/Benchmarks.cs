@@ -7,4 +7,5 @@ public static class Benchmarks
     public const string GcOnTheHeapBenchmarks = "GcOnTheHeapBenchmarks";
     public const string CpuBenchmarks = "CpuBenchmarks";
     public const string CastingBenchmarks = "CastingBenchmarks";
+    public const string SealedBenchmarks = "SealedBenchmarks";
 }
