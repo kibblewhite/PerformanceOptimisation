@@ -17,5 +17,4 @@ public sealed class Listings
         set.Add(4);
         dictionary.Add(4, "4");
     }
-
 }
