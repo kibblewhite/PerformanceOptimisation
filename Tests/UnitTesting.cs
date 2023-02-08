@@ -48,4 +48,20 @@ public class UnitTesting
         // Assert
         Assert.IsTrue(matched);
     }
+
+    [TestMethod]
+    public void CallMethods()
+    {
+        int x = 5;
+
+        BaseX base_x = new();
+        base_x.CallMethod(x);
+
+        int y = 4;
+
+        // calls the derived, because of the method signature matching...
+        DerivedX derived_x = new();
+        derived_x.CallMethod(y);
+
+    }
 }
