@@ -23,8 +23,8 @@ public class VarianceExample
 
         // Contravariance Behaviour
         IConsumer<Derived> derivedConsumer = new Consumer<Derived>();
-        _ = derivedConsumer.Consume(c);             // c => Derived
-        // _ = derivedContravariant.Consume(a);     // a => Base
+        _ = derivedConsumer.Consume(c);        // c => Derived
+        // _ = derivedConsumer.Consume(a);     // a => Base
 
         // Covariance Behaviour
         IConsumer<Base> baseConsumer = new Consumer<Base>();
