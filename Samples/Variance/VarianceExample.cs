@@ -2,7 +2,13 @@
 
 public class VarianceExample
 {
-    // Covariance and Contravariance 
+    // Covariance and Contravariance
+    /// <summary>
+    /// Covariance is when you can use a more derived type(subclass) than originally specified.
+    /// Contravariance is when you can use a more base type(superclass) than originally specified.
+    /// In C#, covariance is allowed for interfaces and delegates with the out keyword,
+    /// while contravariance is allowed with the in keyword.
+    /// </summary>
     public void Sample()
     {
         // Contravariance Behaviour
@@ -15,24 +21,28 @@ public class VarianceExample
         Derived c = derivedProducer.Produce(64);
         Base d = derivedProducer.Produce(128);
 
-        // Covariance Behaviour
-        IConsumer<Base> baseConsumer = new Consumer<Base>();
-        _ = baseConsumer.Consume(a);        // a => Base
-        _ = baseConsumer.Consume(c);        // c => Derived
-
         // Contravariance Behaviour
         IConsumer<Derived> derivedConsumer = new Consumer<Derived>();
         _ = derivedConsumer.Consume(c); // c => Derived
         // derivedContravariant.Consume(new Base());
 
+        // Covariance Behaviour
+        IConsumer<Base> baseConsumer = new Consumer<Base>();
+        _ = baseConsumer.Consume(a);        // a => Base
+        _ = baseConsumer.Consume(c);        // c => Derived
+        
+        // Covariance Behaviour
         IProducer<Base> p = baseProducer;           // IProducer<Base>
         IProducer<Base> q = derivedProducer;        // IProducer<Derived>
         IProducer<Derived> r = derivedProducer;     // IProducer<Derived>
         // IProducer<Derived> s = baseProducer;     // IProducer<Base>
 
+        // Covariant Behaviour
         IConsumer<Derived> t = derivedConsumer;     // IConsumer<Derived>
-        IConsumer<Derived> u = baseConsumer;        // IConsumer<Base>
         IConsumer<Base> v = baseConsumer;           // IConsumer<Base>
+
+        // Contravariance Behaviour
+        IConsumer<Derived> u = baseConsumer;        // IConsumer<Base>
         // IConsumer<Base> w = derivedConsumer;     // IConsumer<Derived>
     }
 }

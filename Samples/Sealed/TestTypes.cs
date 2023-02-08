@@ -30,20 +30,13 @@ public sealed class SealedClass : BaseClass
 // public class ExtendedClass : SealedClass { }
 
 #region [inheritance]
-public class Animal
+public class Vehicle
 {
-    public required string Name { get; init; }
-    public required string Sound { get; init; }
-    public void MakeSound() => Console.WriteLine(Sound);
+    public void StartEngine() => Console.WriteLine("Engine started");
 }
-public class Dog : Animal
-{
-    public Dog()
-    {
-        Name = "Dog";
-        Sound = "Woof";
-    }
-}
+public class Bus : Vehicle { }
+
+// Bus bus = new(); bus.StartEngine();
 #endregion [inheritance]
 
 #region [composition]
