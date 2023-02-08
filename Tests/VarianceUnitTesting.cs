@@ -67,4 +67,13 @@ public class VarianceUnitTesting
 
         Assert.AreEqual(64, derivedConsumed);
     }
+
+    [TestMethod]
+    public void IProducer_Covariance_Test()
+    {
+        IProducer<Extended> extendedProducer = new Producer<Extended>();
+        Extended e = extendedProducer.Produce(128);
+        Base b = e;
+        Assert.AreEqual(128, b.Value);
+    }
 }

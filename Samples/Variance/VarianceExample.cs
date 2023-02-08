@@ -1,5 +1,8 @@
 ﻿namespace Samples.Variance;
 
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-generic-modifier
+// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-generic-modifier
+
 public class VarianceExample
 {
     // Covariance and Contravariance
@@ -53,6 +56,11 @@ public class Base
 }
 
 public class Derived : Base { }
+
+public class Extended : Base
+{
+    public Guid Unique { get; } = Guid.NewGuid();
+}
 
 public interface IProducer<out T>
 {
