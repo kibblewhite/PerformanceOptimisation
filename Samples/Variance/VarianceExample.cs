@@ -14,7 +14,7 @@ public class VarianceExample
         // Contravariance Behaviour
         IProducer<Base> baseProducer = new Producer<Base>();
         Base a = baseProducer.Produce(32);
-        // Derived b = baseProducer.Produce();
+        // Derived b = baseProducer.Produce(16);
 
         // Covariance Behaviour
         IProducer<Derived> derivedProducer = new Producer<Derived>();
@@ -23,8 +23,8 @@ public class VarianceExample
 
         // Contravariance Behaviour
         IConsumer<Derived> derivedConsumer = new Consumer<Derived>();
-        _ = derivedConsumer.Consume(c); // c => Derived
-        // derivedContravariant.Consume(new Base());
+        _ = derivedConsumer.Consume(c);             // c => Derived
+        // _ = derivedContravariant.Consume(a);     // a => Base
 
         // Covariance Behaviour
         IConsumer<Base> baseConsumer = new Consumer<Base>();
