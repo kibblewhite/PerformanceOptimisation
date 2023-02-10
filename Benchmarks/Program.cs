@@ -35,6 +35,9 @@ internal class Program
                 case Benchmarks.SealedBenchmarks:
                     BenchmarkRunner.Run<SealedBenchmarks>(custom_config);
                     break;
+                case Benchmarks.PrimativeOrderingLinq:
+                    BenchmarkRunner.Run<PrimativeOrderingLinq>(custom_config);
+                    break;
             }
         }
 

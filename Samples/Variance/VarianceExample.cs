@@ -1,16 +1,14 @@
 ﻿namespace Samples.Variance;
 
-// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/in-generic-modifier
-// https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/out-generic-modifier
-
 public class VarianceExample
 {
     // Covariance and Contravariance
+    /// <remarks>The summary is the best explaination that I have come across so far...</remarks>
     /// <summary>
-    /// Covariance is when you can use a more derived type(subclass) than originally specified.
-    /// Contravariance is when you can use a more base type(superclass) than originally specified.
-    /// In C#, covariance is allowed for interfaces and delegates with the out keyword,
-    /// while contravariance is allowed with the in keyword.
+    /// Covariance and Contravariance are concepts in C# that deal with the compatibility of generic type parameters in inheritance relationships.
+    /// Covariance allows you to use a more derived type(subclass) than originally specified.For example, in the given code, the IProducer<Base> interface can be assigned to IProducer<Derived>.
+    /// Contravariance, on the other hand, allows you to use a more base type (superclass) than originally specified. In the given code, the IConsumer<Derived> interface can be assigned to IConsumer<Base>.
+    /// Covariance and Contravariance are indicated in C# by using the out keyword for covariance and the in keyword for contravariance. Interfaces and delegates can be covariant or contravariant, but classes cannot. This is because classes are invariant, which means they can only be used with the type they are declared with, and cannot be assigned to or from subtypes or supertypes.
     /// </summary>
     public void Sample()
     {
@@ -47,6 +45,24 @@ public class VarianceExample
         // Contravariance Behaviour
         IConsumer<Derived> u = baseConsumer;        // IConsumer<Base>
         // IConsumer<Base> w = derivedConsumer;     // IConsumer<Derived>
+
+        //
+
+        ICovariant<Object> icovobj = new CovariantSample<Object>();
+        ICovariant<String> icovstr = new CovariantSample<String>();
+
+        // You can assign istr to iobj because
+        // the ICovariant interface is covariant.
+        icovobj = icovstr;
+
+        //
+
+        IContravariant<Object> icontraobj = new ContravariantSample<Object>();
+        IContravariant<String> icontrastr = new ContravariantSample<String>();
+
+        // You can assign iobj to istr because
+        // the IContravariant interface is contravariant.
+        icontrastr = icontraobj;
     }
 }
 
@@ -93,3 +109,21 @@ public class Consumer<T> : IConsumer<T>
         return Convert.ToInt32(prop?.GetValue(obj, null));
     }
 }
+
+// Covariant interface.
+interface ICovariant<out R> { }
+
+// Extending covariant interface.
+interface IExtCovariant<out R> : ICovariant<R> { }
+
+// Implementing covariant interface.
+class CovariantSample<R> : ICovariant<R> { }
+
+// Contravariant interface.
+interface IContravariant<in A> { }
+
+// Extending contravariant interface.
+interface IExtContravariant<in A> : IContravariant<A> { }
+
+// Implementing contravariant interface.
+class ContravariantSample<A> : IContravariant<A> { }
