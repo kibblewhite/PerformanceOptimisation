@@ -8,5 +8,6 @@ public static class Benchmarks
     public const string CpuBenchmarks = "CpuBenchmarks";
     public const string CastingBenchmarks = "CastingBenchmarks";
     public const string SealedBenchmarks = "SealedBenchmarks";
-    public const string PrimativeOrderingLinq = "PrimativeOrderingLinq";
+    public const string PrimativeOrderingLinqBenchmarks = "PrimativeOrderingLinqBenchmarks";
+    public const string AllocationGuidBase64Benchmarks = "AllocationGuidBase64Benchmarks";
 }

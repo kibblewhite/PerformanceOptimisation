@@ -8,7 +8,7 @@
 [MemoryDiagnoser(false)]
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 [RankColumn]
-public class PrimativeOrderingLinq
+public class PrimativeOrderingLinqBenchmarks
 {
     private readonly Random _random = new(420);
     private readonly int _range_start = 1;
